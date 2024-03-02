@@ -1,0 +1,19 @@
+
+<input [(ngModel)]="msg" />
+
+<button (click)="SendMsg()">Send Data</button>
+
+<input type="file" (change)="fileSelect($event)" />
+
+<hr />
+<ul>
+    <li *ngFor="let message of Messages">
+        {{message.UserName}} :
+        <span *ngIf="!message.IsImage">
+            {{message.Text }}
+        </span>
+        <div *ngIf="message.IsImage">
+            <img [src]="message.Text" width="240px" />
+        </div>
+    </li>
+</ul>
